@@ -1,0 +1,186 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #0a0a0a;
+    --card-background: #161616;
+    --checkbox-background: #222222;
+    --border-color: #1e1e1e;
+    --background-adjacent-color: #2e2e2e;
+    --checkbox-outline: #2a2a2a;
+    --checkbox-outline-hover: #323232;
+    --lightened-background-adjacent-color: #363636;
+    --second-degree-lightened-background-adjacent-color: #494949;
+    --subtle-color: #707070;
+    --foreground: #ffffff;
+    --slightly-subtle-foreground: #c5c5c5;
+    --muted-foreground: #aaaaaa;
+    --sub-foreground: #707070;
+    --primary: 201 100% 49%; /* var(--theme-color) */
+    --accent: #00A7FA;
+    --theme-color: var(--accent);
+    --theme-purple: #6011ED;
+    --theme-red: #ED1130;
+    --theme-green: #30ED11;
+    --theme-yellow: #EDCE11;
+    --radius: 0px;
+    --inner-general-rounding: 0px;
+    --general-rounding: 0px;
+    --moderate-rounding: 0px;
+    --outer-moderate-rounding: 0px;
+    --outer-card-radius: 0px;
+    --inner-card-radius: 0px;
+
+    /* Diced Hero Specific Radii */
+    --hero-outer-radius: 20px;
+    --hero-inner-radius: 20px;
+    --hero-warped-size: 40px;
+
+    /* Form specific */
+    --float-input-lbl-def-outline: rgba(255, 255, 255, 0.1);
+    --float-input-lbl-muted-foreground: rgba(255, 255, 255, 0.4);
+
+    /* Modal specific */
+    --button-border-radius: var(--radius);
+    --button-border-color: #1e1e1e;
+    --scrolbar-track-color: var(--background-adjacent-color);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    overflow-x: hidden;
+  }
+  
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--background-adjacent-color);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--theme-color);
+    border-radius: 0px;
+  }
+}
+
+.font-headline {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.font-body {
+  font-family: 'Inter', sans-serif;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.sharp-transition {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hero-outline {
+  -webkit-text-stroke: 1px black;
+  color: transparent;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marquee-reverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.marquee-track {
+  display: flex;
+  white-space: nowrap;
+  animation: marquee 60s linear infinite;
+}
+
+.marquee-track-rtl {
+  display: flex;
+  white-space: nowrap;
+  animation: marquee-reverse 60s linear infinite;
+}
+
+/* Diced Hero Warp Masks */
+.warped-image {
+  --r: var(--hero-inner-radius);
+  --s: var(--hero-warped-size);
+  --x: 25px;
+  --y: 5px;
+  mask-repeat: no-repeat;
+}
+
+.top-right {
+  --_m:/calc(2*var(--r)) calc(2*var(--r)) radial-gradient(#000 70%,#0000 72%);
+  --_g:conic-gradient(at calc(100% - var(--r)) var(--r),#0000 25%,#000 0);
+  --_d:(var(--s) + var(--r));
+  mask:
+    calc(100% - var(--_d) - var(--x)) 0 var(--_m),
+    100% calc(var(--_d) + var(--y)) var(--_m),
+    radial-gradient(var(--s) at 100% 0,#0000 99%,#000 calc(100% + 1px)) 
+     calc(-1*var(--r) - var(--x)) calc(var(--r) + var(--y)),
+    var(--_g) calc(-1*var(--_d) - var(--x)) 0,
+    var(--_g) 0 calc(var(--_d) + var(--y));
+  mask-repeat: no-repeat;
+}
+
+.top-left {
+  --_m:/calc(2*var(--r)) calc(2*var(--r)) radial-gradient(#000 70%,#0000 72%);
+  --_g:conic-gradient(at var(--r) var(--r),#000 75%,#0000 0);
+  --_d:(var(--s) + var(--r));
+  mask:
+    calc(var(--_d) + var(--x)) 0 var(--_m),
+    0 calc(var(--_d) + var(--y)) var(--_m),
+    radial-gradient(var(--s) at 0 0,#0000 99%,#000 calc(100% + 1px)) 
+     calc(var(--r) + var(--x)) calc(var(--r) + var(--y)),
+    var(--_g) calc(var(--_d) + var(--x)) 0,
+    var(--_g) 0 calc(var(--_d) + var(--y));
+  mask-repeat: no-repeat;
+}
+
+.bottom-left {
+  --_m:/calc(2*var(--r)) calc(2*var(--r)) radial-gradient(#000 70%,#0000 72%);
+  --_g:conic-gradient(from 180deg at var(--r) calc(100% - var(--r)),#0000 25%,#000 0);
+  --_d:(var(--s) + var(--r));
+  mask:
+    calc(var(--_d) + var(--x)) 100% var(--_m),
+    0 calc(100% - var(--_d) - var(--y)) var(--_m),
+    radial-gradient(var(--s) at 0 100%,#0000 99%,#000 calc(100% + 1px)) 
+     calc(var(--r) + var(--x)) calc(-1*var(--r) - var(--y)),
+    var(--_g) calc(var(--_d) + var(--x)) 0,
+    var(--_g) 0 calc(-1*var(--_d) - var(--y));
+  mask-repeat: no-repeat;
+}
+
+.bottom-right {
+  --_m:/calc(2*var(--r)) calc(2*var(--r)) radial-gradient(#000 70%,#0000 72%);
+  --_g:conic-gradient(from 90deg at calc(100% - var(--r)) calc(100% - var(--r)),#0000 25%,#000 0);
+  --_d:(var(--s) + var(--r));
+  mask:
+    calc(100% - var(--_d) - var(--x)) 100% var(--_m),
+    100% calc(100% - var(--_d) - var(--y)) var(--_m),
+    radial-gradient(var(--s) at 100% 100%,#0000 99%,#000 calc(100% + 1px)) 
+     calc(-1*var(--r) - var(--x)) calc(-1*var(--r) - var(--y)),
+    var(--_g) calc(-1*var(--_d) - var(--x)) 0,
+    var(--_g) 0 calc(-1*var(--_d) - var(--y));
+  mask-repeat: no-repeat;
+}
+
+/* Wheel Picker Overrides */
+.wheel-picker-option-item {
+  @apply font-mono text-[10px] uppercase tracking-widest;
+}

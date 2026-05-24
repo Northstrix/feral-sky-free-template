@@ -1,0 +1,58 @@
+{
+  "placeholderImages": [
+    {
+      "id": "tour-1",
+      "description": "Pollock Pines",
+      "imageUrl": "https://images.unsplash.com/photo-1561137260-e0d92f9e1559?q=90&w=1600&auto=format&fit=crop",
+      "imageHint": "pines forest"
+    },
+    {
+      "id": "tour-2",
+      "description": "Kings Canyon",
+      "imageUrl": "https://images.unsplash.com/photo-1503785640985-f62e3aeee448?q=90&w=1600&auto=format&fit=crop",
+      "imageHint": "canyon mountains"
+    },
+    {
+      "id": "tour-3",
+      "description": "Yosemite Valley",
+      "imageUrl": "https://images.unsplash.com/photo-1593210542903-a1bb7e9a5d5b?q=90&w=1600&auto=format&fit=crop",
+      "imageHint": "yosemite granite"
+    },
+    {
+      "id": "tour-4",
+      "description": "Seebensee Lake",
+      "imageUrl": "https://images.unsplash.com/photo-1660572278113-c8b856aaf4a0?q=90&w=1600&auto=format&fit=crop",
+      "imageHint": "alpine lake"
+    },
+    {
+      "id": "tour-5",
+      "description": "Val Rendena",
+      "imageUrl": "https://images.unsplash.com/photo-1531387079845-b3bcdd83a14c?q=90&w=1600&auto=format&fit=crop",
+      "imageHint": "italy mountains"
+    },
+    {
+      "id": "tour-6",
+      "description": "Beautiful Place",
+      "imageUrl": "https://images.unsplash.com/photo-1603212353929-85daec4b2d79?q=90&w=1600&auto=format&fit=crop",
+      "imageHint": "nature landscape"
+    },
+    {
+      "id": "tour-7",
+      "description": "Rogue River",
+      "imageUrl": "https://images.unsplash.com/photo-1750010904957-47364f873879?q=90&w=1600&auto=format&fit=crop",
+      "imageHint": "river canyon"
+    },
+    {
+      "id": "tour-8",
+      "description": "French Alps",
+      "imageUrl": "https://images.unsplash.com/photo-1722711131405-6f362a48b086?q=90&w=1600&auto=format&fit=crop",
+      "imageHint": "alps snow"
+    },
+    {
+      "id": "tour-9",
+      "description": "Tara Mountain",
+      "imageUrl": "https://images.unsplash.com/photo-1630138105658-292f22854c01?q=90&w=1600&auto=format&fit=crop",
+      "imageHint": "serbia forest"
+    }
+  ]
+}
